@@ -1,0 +1,15 @@
+{% extends "base.njk" %}
+
+{% block header  %}
+<h1> Cabeçalho novo</h1>
+{% endblock %}
+
+
+{% block body %}
+<form action="/form{% if id %}/{{id}}{% endif %}" method="POST" enctype="application/x-www-form-urlencoded">
+{% if id %}<input type="hidden" name="_method" value="PUT" />{% endif %}
+  <input value="{{ name }}" type="text" name="name" />
+  <input value="{{ price}}" type="text" name="price" />
+  <button type="submit">Send</button>
+</form>
+{% endblock %}
